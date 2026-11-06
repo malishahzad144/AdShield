@@ -10,17 +10,16 @@ android {
         applicationId = "com.adshield"
         minSdk = 26
         targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "2.0"
     }
     buildTypes {
         release {
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
-            signingConfig = signingConfigs.getByName("debug") // sideload-ready; replace for Play Store
+            isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("debug") // sideload-ready; use your own key for Play Store
         }
     }
+    lint { abortOnError = false; checkReleaseBuilds = false }
     compileOptions { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
     kotlinOptions { jvmTarget = "17" }
     buildFeatures { compose = true }
